@@ -1,5 +1,11 @@
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
+const positions = {Manager: [], Engineer: [], Intern: []};
+
+function questions(){
 inquirer
     .prompt([
         {
@@ -46,5 +52,18 @@ inquirer
             type: 'confirm',
             name: 'addEmployee',
             message: 'Do you want to add another employee?'
-        },
-    ])
+        } 
+    ]).then(ans => {
+        ans.role === "Manager"
+        ? positions.Manager.push(new Manager(...Object.values(ans)))
+        : ans.role === "Engineer"
+        ? positions.Engineer.push(new Engineer(...Object.values(ans)))
+        : positions.Intern.push(new Intern(...Object.values(ans)));
+        ans.addEmployee
+        ? questions() 
+        : console.log(positions);
+    });
+}
+
+
+questions();
