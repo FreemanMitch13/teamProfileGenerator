@@ -1,0 +1,33 @@
+/* *{
+    border: 2px red solid;
+} */
+
+.header {
+    background-color: red;
+    border: 2px solid black;
+    text-align: center;
+    color: white
+}
+.cardArea{
+    display:flex;
+    width: 80%;
+    margin: auto;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: grey;
+    border-radius: 8px
+}
+.employeeCard {
+    background-color: lightgrey;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 7px;
+    width: 30%;
+    height: 45vh;
+}
+.cardHeader {
+    background-color: white;
+    margin-top: 0;
+}

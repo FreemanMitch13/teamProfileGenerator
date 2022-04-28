@@ -1,3 +1,4 @@
+let output = `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,61 @@
         <h1> My Team</h1>
     </div>
     <div class="cardArea">
+`
+
+    function htmlGen({Manager, Engineer, Intern}) {
+
+        if (Manager.length) {
+            Manager.forEach(mgr => {
+                output += `
+                <div class="employeeCard">
+                    <div class="cardHeader">
+                        <h2 class="cardName">${mgr.name}</h2>
+                    </div>
+                    <h2 class="cardRole"><i class="fa-solid fa-people-roof"></i>  Manager</h2>
+                    <h3>Id: ${mgr.id}</h3>
+                    <h3>Email: ${mgr.email}</h3>
+                    <h3>Office Number: ${mgr.officeNumber}</h3>
+                </div>
+        
+                `
+            });
+        }
+        if (Engineer.length) {
+            Engineer.forEach(eng => {
+                output += `
+                <div class="employeeCard">
+                    <div class="cardHeader">
+                        <h2 class="cardName">${eng.name}</h2>
+                    </div>
+                    <h2 class="cardRole"><i class="fa-brands fa-wpbeginner"></i> Engineer</h2>
+                    <h3>Id: ${eng.id}</h3>
+                    <h3>Email: ${eng.email}</h3>
+                    <h3>GitHub: ${eng.github}</h3>
+                </div>
+                `
+            });
+        }
+        if (Intern.length) {
+            Intern.forEach(int => {
+                output += `
+                <div class="employeeCard">
+                    <div class="cardHeader">
+                        <h2 class="cardName">${int.name}</h2>
+                    </div>
+                    <h2 class="cardRole"> <i class="fa-solid fa-person-walking-arrow-right"></i>  Intern</h2>
+                    <h3>Id: ${int.id}</h3>
+                    <h3>Email: ${int.email}</h3>
+                    <h3>School: ${int.school}</h3>
+                </div>
+                `
+            });
+
+        }
+
+        
+    }
+`
         <div class="employeeCard">
             <div class="cardHeader">
                 <h2 class="cardName">test</h2>
@@ -64,3 +120,4 @@
 </body>
 
 </html>
+`
