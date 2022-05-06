@@ -1,9 +1,4 @@
-    function htmlGen({
-        Manager,
-        Engineer,
-        Intern
-    }) {
-        let output = `
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -21,56 +16,35 @@
             <h1> My Team</h1>
         </div>
         <div class="cardArea">
-    `
-        if (Manager.length) {
-            Manager.forEach(mgr => {
-                output += `
+    
                 <div class="employeeCard">
                     <div class="cardHeader">
-                        <h2 class="cardName">${mgr.name}</h2>
+                        <h2 class="cardName">Geronimo</h2>
                     </div>
                     <h2 class="cardRole"><i class="fa-solid fa-people-roof"></i>  Manager</h2>
-                    <h3>Id: ${mgr.id}</h3>
-                    <h3>Email: ${mgr.email}</h3>
-                    <h3>Office Number: ${mgr.officeNumber}</h3>
+                    <h3>Id: 2</h3>
+                    <h3>Email: geronimo@gmail.com</h3>
+                    <h3>Office Number: 1</h3>
                 </div>
         
-                `
-            });
-        }
-        if (Engineer.length) {
-            Engineer.forEach(eng => {
-                output += `
+                
                 <div class="employeeCard">
                     <div class="cardHeader">
-                        <h2 class="cardName">${eng.name}</h2>
+                        <h2 class="cardName">mitchell</h2>
                     </div>
                     <h2 class="cardRole"><i class="fa-brands fa-wpbeginner"></i> Engineer</h2>
-                    <h3>Id: ${eng.id}</h3>
-                    <h3>Email: ${eng.email}</h3>
-                    <h3>GitHub: ${eng.github}</h3>
+                    <h3>Id: 1</h3>
+                    <h3>Email: mitchell@gmail.com</h3>
+                    <h3>GitHub: mitchell.github</h3>
                 </div>
-                `
-            });
-        }
-        if (Intern.length) {
-            Intern.forEach(int => {
-                output += `
+                
                 <div class="employeeCard">
                     <div class="cardHeader">
-                        <h2 class="cardName">${int.name}</h2>
+                        <h2 class="cardName">Jacob</h2>
                     </div>
                     <h2 class="cardRole"> <i class="fa-solid fa-person-walking-arrow-right"></i>  Intern</h2>
-                    <h3>Id: ${int.id}</h3>
-                    <h3>Email: ${int.email}</h3>
-                    <h3>School: ${int.school}</h3>
+                    <h3>Id: 3</h3>
+                    <h3>Email: jacob@gmail.com</h3>
+                    <h3>School: Georgia State University</h3>
                 </div>
-                `
-            });
-
-        }
-        output += " </div> </body> </html> ";
-        return output;
-    }
-
-    module.exports = htmlGen;
+                 </div> </body> </html> 

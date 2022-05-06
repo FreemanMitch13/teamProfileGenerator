@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
+const htmlGen = require('./dist/htmlGen');
 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -57,14 +58,21 @@ inquirer
             message: 'Do you want to add another employee?'
         } 
     ]).then(ans => {
-        ans.role === "Manager"
-        ? positions.Manager.push(new Manager(...Object.values(ans)))
-        : ans.role === "Engineer"
-        ? positions.Engineer.push(new Engineer(...Object.values(ans)))
-        : positions.Intern.push(new Intern(...Object.values(ans)));
+        if (ans.role === "Manager") {
+            delete ans.role;
+            positions.Manager.push(new Manager(...Object.values(ans)))
+        };
+        if (ans.role === "Engineer") {
+            delete ans.role;
+            positions.Engineer.push(new Engineer(...Object.values(ans)))
+        };   
+        if (ans.role === "Intern") {
+            delete ans.role;
+            positions.Intern.push(new Intern(...Object.values(ans)));
+        };
         ans.addEmployee
         ? questions() 
-        : console.log(positions);
+        : fs.writeFile('./dist/teamProfile.html', htmlGen(positions), err => {if(err) throw err;});
     });
 }
 
